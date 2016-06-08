@@ -1,5 +1,7 @@
 <?php
 
+$email = 'Insert Libsyn Email';
+$password = 'Insert Libsyn Password';
 if ( false === ( $libsyn_transient = get_transient( '_libsyn_transient' ) ) ) {
   add_action('wp_head', 'libsyn_transient_not_found');
   function libsyn_transient_not_found() {
@@ -16,8 +18,8 @@ if ( false === ( $libsyn_transient = get_transient( '_libsyn_transient' ) ) ) {
     ),
         'body' => array(
           'req' => 'https://four.libsyn.com/stats/ajax-export/show_id/' . $showID . '/type/downloads/target/show/id/' . $showID . '/',
-          'email' => 
-          'password' => 
+          'email' => $email,
+          'password' => $password
       ),
   );
   $response = wp_remote_post( $url, $args );
